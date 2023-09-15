@@ -1,0 +1,53 @@
+Problem 1
+
+```{r}
+library(moderndive)
+library(ggplot2)
+library(tidyverse)
+data("early_january_weather")
+
+temps <- pull(early_january_weather, temp)
+
+```
+
+The dataset named early_january_weather has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. The mean temperature is `r mean(temps)` degrees.
+
+```{r}
+scatterplot <- ggplot(early_january_weather, mapping = aes(x = time_hour, y = temp, color = humid)) +    geom_point() + 
+  labs(x = "Time Hour", y = "Temperature", title = "Scatterplot of Temperature vs. Time Hour")
+
+ggsave("scatterplot.png", plot = scatterplot, width = 8, height = 6)
+
+```
+
+The scatterplot of `temperature` vs. `time_hour` exhibits a repeating, cyclic pattern suggesting a daily weather pattern which can indicate that temperature and time hour follow a predictable trend over the course of the day. The scatterplot also shows a clear gradient from dark blue to light blue which can indicate that humidity increases as time hour increases in the month of January. 
+
+Problem 2 
+
+```{r}
+problem_2_df <- tibble(
+  samples = rnorm(10),
+  log_vector = c(samples > 0),
+  char_vector = c('a','b','c','d','e','f','g','h','i','j'),
+  factor_vector = as.factor(c('small', 'medium', 'small', 'medium', 'large', 'large','medium','large','medium','large'))
+  
+)
+
+samples_mean <- mean(pull(problem_2_df,samples))
+print(samples_mean)
+log_mean <- mean(pull(problem_2_df,log_vector))
+print(log_mean)
+char_mean <- mean(pull(problem_2_df,char_vector))
+factor_mean <- mean(pull(problem_2_df,factor_vector))
+```
+You are only able to find the means of the random sample vector and the logical vector. 
+
+```{r}
+as.numeric(pull(problem_2_df,log_vector))
+as.numeric(pull(problem_2_df,char_vector))
+as.numeric(pull(problem_2_df,factor_vector))
+```
+
+The log_vector and factor_vector were converted into numerical vectors. For the logical vector, `TRUE` and `FALSE` values turned into `0` and `1` whereas for the factor vector, `small`, `medium`, `large` values turned into `0`, `1`, `2`. Since the `factor_vector` is now converted into a numeric vector, we can now find the mean. 
+
+
