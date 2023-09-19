@@ -49,7 +49,11 @@ char_mean <- mean(pull(problem_2_df,char_vector))
 factor_mean <- mean(pull(problem_2_df,factor_vector))
 ```
 
-###The mean of the: \* samples vector is `r samples_mean`. \* log_vector is `r log_mean`. \* char_vector is `r char_mean`. \* factor_vector is `r factor_mean`.
+- The mean of the: 
+  - samples vector is `r samples_mean`.
+  - log_vector is `r log_mean`. 
+  - char_vector is `r char_mean`. 
+  - factor_vector is `r factor_mean`.
 
 You are only able to find the means of the random sample vector and the logical vector.
 
@@ -59,6 +63,11 @@ new_char_mean <- mean(as.numeric(pull(problem_2_df,char_vector)))
 new_factor_mean <- mean(as.numeric(pull(problem_2_df,factor_vector)))
 ```
 
+- The mean of the: 
+  - new log_vector is `r new_log_mean`.
+  - new char_vector is `r new_char_mean`.
+  - new factor_vector is `r new_factor_mean`.
+  
 The log_vector and factor_vector were converted into numerical vectors. For the logical vector, `TRUE` and `FALSE` values turned into `0` and `1` whereas for the factor vector, `small`, `medium`, `large` values turned into `0`, `1`, `2`. Since the `factor_vector` is now converted into a numeric vector, we can now find the mean. However, when the as.numeric function is being applied to the char vector, it does not know what numeric value to convert each of the chars to. Therefore, each char does not have a numeric representation and therefore, we are unable to find the mean even after applying the as.numeric function.
 
 
