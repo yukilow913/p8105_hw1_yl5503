@@ -28,6 +28,8 @@ scatterplot <- ggplot(early_january_weather, mapping = aes(x = time_hour, y = te
 
 ggsave("scatterplot.png", plot = scatterplot, width = 8, height = 6)
 
+scatterplot
+
 ```
 
 The scatterplot of `temperature` vs. `time_hour` exhibits a repeating, cyclic pattern suggesting a daily weather pattern which can indicate that temperature and time hour follow a predictable trend over the course of the day. The scatterplot also shows a clear gradient from dark blue to light blue which can indicate that humidity increases as time hour increases in the month of January. The scatterplot also has an overall increasing trend which can indicate that temperature increases as time hour increases in the month of January.
